@@ -14,6 +14,7 @@ void push(stack_t **head, unsigned int line, char *n)
 
 	if (n == NULL)
 	{
-		
+		printf("L%d: usage: push integer\n", line);
+		exit(EXIT_FAILURE);
 	}
 }
