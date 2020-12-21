@@ -2,6 +2,8 @@
 #define MONTY_H
 
 #include <stdlib.h>
+#include <stdio.h>
+#include <ctype.h>
 
 #include "structs.h"
 
