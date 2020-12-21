@@ -3,10 +3,12 @@
 
 #include <stdlib.h>
 
+#include "structs.h"
+
 /* stack functions */
 void push(stack_t **head, unsigned int line, char *n)
 void pop(stack_t **head, unsigned int line)
 void swap(stack_t **head, unsigned int line)
 void nop(stack_t **head, unsigned int line)
 
-#endif
+#endif /* MONTY_H */
