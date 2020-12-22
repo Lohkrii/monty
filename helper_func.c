@@ -5,12 +5,12 @@
  * @head: pointer to head of stack
  * Return: length of stack
  */
-size_t stack_length(stack_t **stack)
+size_t stack_length(stack_t **head)
 {
 	stack_t *node;
 	unsigned int i;
 
-	node = *stack;
+	node = *head;
 	for (i = 0; node != NULL; i++)
 	{
 		node = node->next;
