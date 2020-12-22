@@ -17,6 +17,31 @@ void push(stack_t **head, unsigned int line, char *n)
 		printf("L%d: usage: push integer\n", line);
 		exit(EXIT_FAILURE);
 	}
+	for (i = 0; n[i] != '\0'; i++)
+	{
+		if (isdigit(n[i]) == 0)
+		{
+			printf("L%d: usage: push integer\n", line_number);
+			exit(EXIT_FAILURE);
+		}
+	}
+	element = malloc(sizeof(stack_t));
+	if (element == NULL)
+	{
+		printf("Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
+
+	element->n = atoi(n);
+	element->prev = NULL;
+	element->next = NULL;
+	if (*head != NULL)
+	{
+		element->next = *head;
+		(*head)->prev = element;
+	}
+
+	*head = element;
 }
 
 /**
