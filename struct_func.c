@@ -39,3 +39,4 @@ void pop(stack_t **head, unsigned int line)
 	free(*head);
 	*head = temp;
 }
+
