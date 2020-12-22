@@ -18,3 +18,24 @@ void push(stack_t **head, unsigned int line, char *n)
 		exit(EXIT_FAILURE);
 	}
 }
+
+/**
+ * pop - remove 1st element in stack
+ * @head: stack
+ * @line: line number
+ * Return: void or exit
+ */
+void pop(stack_t **head, unsigned int line)
+{
+	stack_t *temp;
+
+	if (head == NULL || *head == NULL)
+	{
+		printf("L%d: can't pop an empty stack\n", line);
+		exit(EXIT_FAILURE);
+	}
+
+	temp = (*head)->next;
+	free(*head);
+	*head = temp;
+}
