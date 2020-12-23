@@ -1,11 +1,15 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <ctype.h>
-
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
 #include "structs.h"
+
 extern stack_t *head;
 
 /* stack functions */
@@ -40,8 +44,10 @@ void pstr(stack_t **head, unsigned int line);
 void rotl(stack_t **head, unsigned int line);
 void rotr(stack_t **head, unsigned int line);
 
+size_t stack_length(stack_t **head);
+
 stack_t *check_int_arg(char *arg, char *buf, FILE *fp);
-stack_t *creat_stack(int n, char *buf, FILE *fp);
+stack_t *create_stack(int n, char *buf, FILE *fp);
 
 /* Helper functions */
 

@@ -5,6 +5,7 @@
  * @head: pointer to head of stack
  * Return: length of stack
  */
+
 size_t stack_length(stack_t **head)
 {
 	stack_t *node;
@@ -33,8 +34,7 @@ void check_cmd_arg(unsigned int ln_num,
 	int idx;
 	stack_t *stack = NULL;
 
-	instruction_t *arg_func[] = {
-			{"push", push},
+	instruction_t arg_func[] = {{"push", push},
 			{NULL, NULL}
 			};
 	for (idx = 0; arg_func[idx].opcode != NULL; idx++)
