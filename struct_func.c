@@ -86,3 +86,14 @@ void swap(stack_t **head, unsigned int line)
 	(*head)->n = temp2;
 	(*head)->next->n = temp;
 }
+/**
+ * nop - does nothing
+ * @stack: pointer to stack
+ * @line_number: line number of instruction
+ * Return: void
+ */
+void nop(stack_t **head, unsigned int line)
+{
+	(void)head;
+	(void)line;
+}
