@@ -7,6 +7,7 @@
  * @n: data in element
  * Return: void or -1 if fail
  */
+
 void push(stack_t **head, unsigned int line, char *n)
 {
 	stack_t *element = NULL;
@@ -50,6 +51,7 @@ void push(stack_t **head, unsigned int line, char *n)
  * @line: line number
  * Return: void or exit
  */
+
 void pop(stack_t **head, unsigned int line)
 {
 	stack_t *temp;

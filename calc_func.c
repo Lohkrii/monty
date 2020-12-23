@@ -43,7 +43,7 @@ void sub(stack_t **head, unsigned int line_num)
 	(*head) = (*head)->next;
 	free((*head)->prev);
 	(*head)->prev = NULL;
-	(*head)-> = product;
+	(*head)->n = product;
 }
 
 /**
