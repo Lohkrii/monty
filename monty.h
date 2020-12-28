@@ -49,6 +49,4 @@ size_t stack_length(stack_t **head);
 stack_t *check_int_arg(char *arg, char *buf, FILE *fp);
 stack_t *create_stack(int n, char *buf, FILE *fp);
 
-/* Helper functions */
-
 #endif /* MONTY_H */

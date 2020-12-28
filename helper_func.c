@@ -34,9 +34,9 @@ void check_cmd_arg(unsigned int ln_num,
 	int idx;
 	stack_t *stack = NULL;
 
-	instruction_t arg_func[] = {{"push", push},
-			{NULL, NULL}
-			};
+	instruction_t arg_func[] = {
+		{"push", push}, {NULL, NULL}};
+
 	for (idx = 0; arg_func[idx].opcode != NULL; idx++)
 	{
 		/*check if command is a valid command */
