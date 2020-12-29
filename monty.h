@@ -17,6 +17,7 @@ void push(stack_t **head, unsigned int line, char *n);
 void pop(stack_t **head, unsigned int line);
 void swap(stack_t **head, unsigned int line);
 void nop(stack_t **head, unsigned int line);
+stack_t *add_node(stack_t **head, const int n);
 
 /* math functions */
 void add(stack_t **head, unsigned int line);

@@ -8,41 +8,24 @@
  * Return: void or -1 if fail
  */
 
-void push(stack_t **head, unsigned int line, char *n)
+void push(stack_t **head, unsigned int line)
 {
-	stack_t *element = NULL;
-	int i;
+       	int i;
+	char *cmd;
 
-	if (n == NULL)
+	cmd = strtok(NULL, "\n\t\r ");
+	if (cmd == NULL || searchNumber(cmd))
 	{
-		printf("L%d: usage: push integer\n", line);
+		fprintf(stderr, "L%u: usage: push integer\n", line);
 		exit(EXIT_FAILURE);
 	}
-	for (i = 0; n[i] != '\0'; i++)
+	i = atoi(cmd);
+      	if (add_node(head,i) == NULL)
 	{
-		if (isdigit(n[i]) == 0)
-		{
-			printf("L%d: usage: push integer\n", line);
-			exit(EXIT_FAILURE);
-		}
-	}
-	element = malloc(sizeof(stack_t));
-	if (element == NULL)
-	{
-		printf("Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-
-	element->n = atoi(n);
-	element->prev = NULL;
-	element->next = NULL;
-	if (*head != NULL)
-	{
-		element->next = *head;
-		(*head)->prev = element;
-	}
-
-	*head = element;
+	var.head_len++;
 }
 
 /**
@@ -65,6 +48,42 @@ void pop(stack_t **head, unsigned int line)
 	temp = (*head)->next;
 	free(*head);
 	*head = temp;
+}
+
+/**
+ * add_node - adds a node to stack
+ * @head: head to a linked list
+ * @n: data of new node
+ * Return: new node, or null
+ */
+
+stack_t *add_node(stack_t **head, const int n)
+{
+	stack_t *new;
+
+	if (head == NULL)
+	{
+		return (NULL);
+	}
+	new = malloc(sizeof(stack_t));
+	if (new == NULL)
+		return (NULL);
+	new->n = n;
+	if (*head == NULL)
+	{
+		new->prev = new;
+		new->next = new;
+	}
+	else
+	{
+		(*head)->prev->next = new;
+		new->prev = (*head)->prev;
+		(*head)->prev = new;
+		new->next = *head;
+	}
+	if (var.queue == STACK || var.head_len == 0)
+		*head = new;
+        return (new);
 }
 
 /**
