@@ -1,16 +1,39 @@
 #include "monty.h"
 
-/**
-* free_stack - Frees each element of the stack.
-*/
-
-void free_stack(void)
+void free_stk(int status, void *line)
 {
-	if (head != NULL)
-		while (head->next != NULL)
-		{
-			head = head->next;
-			free(head->prev);
-		}
-		free(head);
+	stack_t **head;
+	stack_t *next;
+	(void)status;
+
+	head = (stack_t **)line;
+	if (*head)
+	{
+		(*head)->prev->next = NULL;
+		(*head)->prev = NULL;
+	}
+	while (*head != NULL)
+	{
+		next = (*head)->next;
+		free(*head);
+		*head = next;
+	}
+	var.head_len = 0;
+}
+void fp_close(int status, void *line)
+{
+	FILE *fs;
+
+	(void)status;
+
+	fs = (FILE *) line;
+	fclose(fs);
+}
+void free_lineptr(int status, void *line)
+{
+	char **lineptr = line;
+
+	(void)status;
+	if (*lineptr != NULL)
+		free(*lineptr);
 }

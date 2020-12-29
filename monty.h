@@ -30,7 +30,7 @@ void invalid_cmd_errmsg(char  *cmd, unsigned int ln_num, char *buffer, FILE *fp)
 void open_file(char *monty_file);
 void read_and_tokenize(FILE *fp);
 void pall(stack_t **head, unsigned int line);
-int check_cmd_no_arg(unsigned int line, char *token_1);
+void check_cmd_no_arg(char *token_1, stack_t **stack, unsigned int line_num);
 void free_stack(void);
 void print(stack_t **head, unsigned int line);
 void pint(stack_t **head,unsigned int line);
@@ -44,9 +44,26 @@ void pstr(stack_t **head, unsigned int line);
 void rotl(stack_t **head, unsigned int line);
 void rotr(stack_t **head, unsigned int line);
 
+/* Free Functions */
+void free_stk(int status, void *line);
+void fp_close(int status, void *line);
+void free_lineptr(int status, void *line);
+
 size_t stack_length(stack_t **head);
 
 stack_t *check_int_arg(char *arg, char *buf, FILE *fp);
 stack_t *create_stack(int n, char *buf, FILE *fp);
+
+typedef struct var_s
+{
+	int queue;
+	size_t head_len;
+} var_t;
+
+#define STACK 0
+#define QUEUE 1
+
+/* global struct to hold flag for queue and stack length */
+extern var_t var;
 
 #endif /* MONTY_H */
