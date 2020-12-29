@@ -29,8 +29,7 @@ void pint(stack_t **head, unsigned int line)
 {
 	if (head == NULL || (*head) == NULL)
 	{
-		printf("L%d: Can't pint, stack empty\n", line);
-		free_stack();
+		fprintf(stderr, "L%d: Can't pint, stack empty\n", line);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*head)->n);
@@ -48,8 +47,7 @@ void pchar(stack_t **head, unsigned int line)
 
 	if (head == NULL || (*head) == NULL)
 	{
-		printf("L%d: cant pchar, stack empty\n", line);
-		free_stack();
+		fprintf(stderr, "L%d: cant pchar, stack empty\n", line);
 		exit(EXIT_FAILURE);
 	}
 	value = (*head)->n;
@@ -63,9 +61,8 @@ void pchar(stack_t **head, unsigned int line)
 	}
 	else
 	{
-		printf("L%d: can't pchar, value out of range\n", line);
-		free_stack();
-		exit(EXIT_FAILURE);
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line);
+       		exit(EXIT_FAILURE);
 	}
 }
 

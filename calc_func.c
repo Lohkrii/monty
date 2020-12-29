@@ -12,9 +12,8 @@ void add(stack_t **head, unsigned int line)
 
 	if (head == NULL || (*head) == NULL || (*head)->next == NULL)
 	{
-		printf("L%d: can't add, stack too short\n", line);
-		free_stack();
-		exit(EXIT_FAILURE);
+		fprintf(stderr, "L%d: can't add, stack too short\n", line);
+       		exit(EXIT_FAILURE);
 	}
 	product = (*head)->n + (*head)->next->n;
 	(*head) = (*head)->next;
@@ -35,8 +34,7 @@ void sub(stack_t **head, unsigned int line)
 
 	if (head == NULL || (*head) == NULL || (*head)->next == NULL)
 	{
-		printf("L%d: can't sub, stack too short\n", line);
-		free_stack();
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line);
 		exit(EXIT_FAILURE);
 	}
 	product = (*head)->next->n - (*head)->n;
@@ -58,8 +56,7 @@ void mul(stack_t **head, unsigned int line)
 
 	if (head == NULL || (*head) == NULL || (*head)->next == NULL)
 	{
-		printf("L%d: can't mul, stack too short\n", line);
-		free_stack();
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line);
 		exit(EXIT_FAILURE);
 	}
 	product = (*head)->n * (*head)->next->n;
@@ -81,14 +78,12 @@ void div_stack(stack_t **head, unsigned int line)
 
 	if (head == NULL || (*head) == NULL || (*head)->next == NULL)
 	{
-		printf("L%d: can't div, stack too short\n", line);
-		free_stack();
+		fprintf(stderr, "L%d: can't div, stack too short\n", line);
 		exit(EXIT_FAILURE);
 	}
 	if ((*head)->n == 0)
 	{
-		printf("L%d: division by zero\n", line);
-		free_stack();
+		fprintf(stderr, "L%d: division by zero\n", line);
 		exit(EXIT_FAILURE);
 	}
 	product = (*head)->next->n / (*head)->n;
@@ -110,14 +105,12 @@ void mod(stack_t **head, unsigned int line)
 
 	if (head == NULL || (*head) == NULL || (*head)->next == NULL)
 	{
-		printf("L%d: can't mod, stack too short\n", line);
-		free_stack();
+		fprintf(stderr, "L%d: can't mod, stack too short\n", line);
 		exit(EXIT_FAILURE);
 	}
 	if ((*head)->n == 0)
 	{
-		printf("L%d: division by zero\n", line);
-		free_stack();
+		fprintf(stderr, "L%d: division by zero\n", line);
 		exit(EXIT_FAILURE);
 	}
 	product = (*head)->next->n % (*head)->n;

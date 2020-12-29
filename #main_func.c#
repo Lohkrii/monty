@@ -28,10 +28,7 @@ stack_t *check_int_arg(char *arg, char *buf, FILE *fp)
 		n = atoi(arg);
 		if (is_neg == -1)
 			n *= -1;
-		stack = create_stack(n, buf, fp);
 		return (stack);
 	}
 	return (NULL);
 }
-
-

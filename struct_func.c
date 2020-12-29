@@ -1,6 +1,26 @@
 #include "monty.h"
 
 /**
+ * searchNumber - searches for a number
+ * @s: number to be searched for
+ * Return: 1 if found else 0
+ */
+
+static int searchNumber(char *s)
+{
+	int i;
+
+	for (i = 0; s[i]; i++)
+	{
+		if (s[i] == '-' && i == 0)
+			continue;
+		if (isdigit(s[i]) == 0)
+			return (1);
+	}
+	return (0);
+}
+
+/**
  * push - add an element to the top of stack
  * @head: top of stack
  * @line: line number
