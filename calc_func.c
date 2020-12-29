@@ -6,13 +6,13 @@
  * @line_num: Line number in command file.
  */
 
-void add(stack_t **head, unsigned int line_num)
+void add(stack_t **head, unsigned int line)
 {
 	int product = 0;
 
 	if (head == NULL || (*head) == NULL || (*head)->next == NULL)
 	{
-		printf("L%d: can't add, stack too short\n", line_num);
+		printf("L%d: can't add, stack too short\n", line);
 		free_stack();
 		exit(EXIT_FAILURE);
 	}
@@ -26,16 +26,16 @@ void add(stack_t **head, unsigned int line_num)
 /**
  * sub - Subtracts the top two elements from the stack
  * @head: Stack pointer.
- * @line_num: Line number in command file.
+ * @line: Line number in command file.
  */
 
-void sub(stack_t **head, unsigned int line_num)
+void sub(stack_t **head, unsigned int line)
 {
 	int product = 0;
 
 	if (head == NULL || (*head) == NULL || (*head)->next == NULL)
 	{
-		printf("L%d: can't sub, stack too short\n", line_num);
+		printf("L%d: can't sub, stack too short\n", line);
 		free_stack();
 		exit(EXIT_FAILURE);
 	}
@@ -43,7 +43,7 @@ void sub(stack_t **head, unsigned int line_num)
 	(*head) = (*head)->next;
 	free((*head)->prev);
 	(*head)->prev = NULL;
-	(*head)-> = product;
+	(*head)->n = product;
 }
 
 /**
@@ -52,13 +52,13 @@ void sub(stack_t **head, unsigned int line_num)
  * @line_num: Line number in command file.
  */
 
-void mul(stack_t **head, unsigned int line_num)
+void mul(stack_t **head, unsigned int line)
 {
 	int product = 0;
 
 	if (head == NULL || (*head) == NULL || (*head)->next == NULL)
 	{
-		printf("L%d: can't mul, stack too short\n", line_num);
+		printf("L%d: can't mul, stack too short\n", line);
 		free_stack();
 		exit(EXIT_FAILURE);
 	}
@@ -75,19 +75,19 @@ void mul(stack_t **head, unsigned int line_num)
 * @line_num: Line number of the comman`d file.
 */
 
-void div_stack(stack_t **head, unsigned int line_num)
+void div_stack(stack_t **head, unsigned int line)
 {
 	int product = 0;
 
 	if (head == NULL || (*head) == NULL || (*head)->next == NULL)
 	{
-		printf("L%d: can't div, stack too short\n", line_num);
+		printf("L%d: can't div, stack too short\n", line);
 		free_stack();
 		exit(EXIT_FAILURE);
 	}
 	if ((*head)->n == 0)
 	{
-		printf("L%d: division by zero\n", line_num);
+		printf("L%d: division by zero\n", line);
 		free_stack();
 		exit(EXIT_FAILURE);
 	}
@@ -104,19 +104,19 @@ void div_stack(stack_t **head, unsigned int line_num)
 * @line_num: Line number of the command file.
 */
 
-void mod(stack_t **head, unsigned int line_num)
+void mod(stack_t **head, unsigned int line)
 {
 	int product = 0;
 
 	if (head == NULL || (*head) == NULL || (*head)->next == NULL)
 	{
-		printf("L%d: can't mod, stack too short\n", line_num);
+		printf("L%d: can't mod, stack too short\n", line);
 		free_stack();
 		exit(EXIT_FAILURE);
 	}
 	if ((*head)->n == 0)
 	{
-		printf("L%d: division by zero\n", line_num);
+		printf("L%d: division by zero\n", line);
 		free_stack();
 		exit(EXIT_FAILURE);
 	}

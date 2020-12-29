@@ -3,13 +3,13 @@
 /**
  * pall - Prints the stack starting from the top.
  * @head: First item in the stack.
- * @line_num: Line number of the command file.
+ * @line: Line number of the command file.
  */
 
-void pall(stack_t **head, unsigned int line_num)
+void pall(stack_t **head, unsigned int line)
 {
 	stack_t *iterator;
-	(void)line_num;
+	(void)line;
 
 	iterator = *head;
 	for (;iterator;)
@@ -22,14 +22,14 @@ void pall(stack_t **head, unsigned int line_num)
 /**
  * pint - Prints the value at the head of the stack.
  * @head: First item in the stack.
- * @line_num: Line number of the command file.
+ * @line: Line number of the command file.
  */
 
-void pint(stack_t **head, unsigned int line_num)
+void pint(stack_t **head, unsigned int line)
 {
 	if (head == NULL || (*head) == NULL)
 	{
-		printf("L%d: Can't pint, stack empty\n", line_num);
+		printf("L%d: Can't pint, stack empty\n", line);
 		free_stack();
 		exit(EXIT_FAILURE);
 	}
@@ -39,16 +39,16 @@ void pint(stack_t **head, unsigned int line_num)
 /**
  * pchar - Prints the value at the head of the stack.
  * @head: First item in the stack.
- * @line_num: Line number of the command file.
+ * @line: Line number of the command file.
  */
 
-void pchar(stack_t **head unsigned int line_num)
+void pchar(stack_t **head, unsigned int line)
 {
 	int value;
 
 	if (head == NULL || (*head) == NULL)
 	{
-		printf("L%d: cant pchar, stack empty\n", line_num);
+		printf("L%d: cant pchar, stack empty\n", line);
 		free_stack();
 		exit(EXIT_FAILURE);
 	}
@@ -63,7 +63,7 @@ void pchar(stack_t **head unsigned int line_num)
 	}
 	else
 	{
-		print("L%d: can't pchar, value out of range\n", line_num);
+		printf("L%d: can't pchar, value out of range\n", line);
 		free_stack();
 		exit(EXIT_FAILURE);
 	}
@@ -72,14 +72,14 @@ void pchar(stack_t **head unsigned int line_num)
 /**
  * pstr - Prints the stack in string format.
  * @head: First item on the stack.
- * @line_num: Line number of the command file.
+ * @line: Line number of the command file.
  */
 
-void pstr(stack_t **head, unsigned int line_num)
+void pstr(stack_t **head, unsigned int line)
 {
 	stack_t *iterator;
 	int value;
-	(void) line_num;
+	(void) line;
 
 	if (head == NULL || (*head) == NULL)
 	{

@@ -7,6 +7,7 @@
  * @n: data in element
  * Return: void or -1 if fail
  */
+
 void push(stack_t **head, unsigned int line, char *n)
 {
 	stack_t *element = NULL;
@@ -21,7 +22,7 @@ void push(stack_t **head, unsigned int line, char *n)
 	{
 		if (isdigit(n[i]) == 0)
 		{
-			printf("L%d: usage: push integer\n", line_number);
+			printf("L%d: usage: push integer\n", line);
 			exit(EXIT_FAILURE);
 		}
 	}
@@ -50,6 +51,7 @@ void push(stack_t **head, unsigned int line, char *n)
  * @line: line number
  * Return: void or exit
  */
+
 void pop(stack_t **head, unsigned int line)
 {
 	stack_t *temp;
@@ -68,7 +70,7 @@ void pop(stack_t **head, unsigned int line)
 /**
  * swap - swaps the value of the top two elements on the stack
  * @stack: pointer to stack
- * @line_number: line number of instruction
+ * @line: line number of instruction
  * Return: void, exit with -1 on failure
  */
 void swap(stack_t **head, unsigned int line)
@@ -78,7 +80,7 @@ void swap(stack_t **head, unsigned int line)
 
 	if (stack_length(head) < 2)
 	{
-		printf("L%d: can't swap, stack too short\n", line_number);
+		printf("L%d: can't swap, stack too short\n", line);
 		exit(EXIT_FAILURE);
 	}
 	temp = (*head)->n;
