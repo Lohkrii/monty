@@ -61,7 +61,7 @@ void pop(stack_t **head, unsigned int line)
 
 	if (head == NULL || *head == NULL)
 	{
-		printf("L%d: can't pop an empty stack\n", line);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line);
 		exit(EXIT_FAILURE);
 	}
 
@@ -119,7 +119,7 @@ void swap(stack_t **head, unsigned int line)
 
 	if (stack_length(head) < 2)
 	{
-		printf("L%d: can't swap, stack too short\n", line);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line);
 		exit(EXIT_FAILURE);
 	}
 	temp = (*head)->n;
