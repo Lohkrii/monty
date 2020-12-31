@@ -12,10 +12,12 @@ void pall(stack_t **head, unsigned int line)
 	(void)line;
 
 	iterator = *head;
-	for (;iterator;)
+	while(iterator)
 	{
 		printf("%d\n", iterator->n);
 		iterator = iterator->next;
+		if (iterator == *head)
+			return;
 	}
 }
 
