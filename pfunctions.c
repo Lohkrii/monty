@@ -33,7 +33,7 @@ void pint(stack_t **head, unsigned int line)
 
 	if (var.head_len == 0)
 	{
-		fprintf(stderr, "L%d: Can't pint, stack empty\n", line);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", stack->n);
